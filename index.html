@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f766e">
+  <title>BRO | بوبوت مساعدك الذكي</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-button mobile-menu" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+    <a class="brand" href="index.html" aria-label="BRO الصفحة الرئيسية">
+      <span class="brand-mark">B</span>
+      <span><strong>BRO</strong><small>مساعدك الذكي</small></span>
+    </a>
+    <nav class="top-links" aria-label="القائمة الرئيسية">
+      <button class="nav-link active" data-section="chat">المحادثة</button>
+      <button class="nav-link" data-section="education">التعليم</button>
+      <button class="nav-link" data-section="knowledge">الدين والمعرفة</button>
+      <button class="nav-link" data-section="places">الأماكن في مصر</button>
+    </nav>
+    <div class="account-actions">
+      <button class="button button-quiet" id="loginOpen">تسجيل الدخول</button>
+      <button class="button button-primary" id="signupOpen">إنشاء حساب</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <button class="new-chat" id="newChat">＋ محادثة جديدة</button>
+      <p class="sidebar-label">مساحة بوبوت</p>
+      <button class="side-item active" data-section="chat"><span>▤</span> المحادثة</button>
+      <button class="side-item" data-section="education"><span>▧</span> التعليم والدراسة</button>
+      <button class="side-item" data-section="knowledge"><span>◉</span> الدين والمعرفة</button>
+      <button class="side-item" data-section="places"><span>⌖</span> الأماكن في مصر</button>
+      <div class="sidebar-bottom">
+        <div class="mini-boboot">🤖</div>
+        <strong>بوبوت</strong>
+        <p>مساعد نصي يبحث ويشرح ويعرض المصادر.</p>
+        <span class="status"><i></i> الواجهة جاهزة للتجربة</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="welcome" id="welcome">
+        <div class="eyebrow"><span class="live-dot"></span> مساعد ذكي للمعلومات والتعلّم</div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>أهلًا <span id="welcomeName">بيك</span>،<br>أنا <span class="teal-text">بوبوت</span> 🤖</h1>
+            <p>اسأل عن أي حاجة، وخلّيني أساعدك تفهمها وتوصل للمعلومة ومصدرها.</p>
+            <div class="hero-points">
+              <span>✓ شرح بسيط</span><span>✓ مصادر وروابط</span><span>✓ عربي واضح</span>
+            </div>
+          </div>
+          <div class="robot-card">
+            <div class="robot-glow"></div>
+            <img src="images/boboot-concept.png" alt="تصميم روبوت بوبوت المقترح" class="robot-image">
+            <span class="robot-caption">بوبوت · مساعد BRO</span>
+          </div>
+        </div>
+        <div class="suggestion-heading"><h2>تحب نبدأ بإيه؟</h2><span>اختار اقتراح أو اكتب سؤالك</span></div>
+        <div class="suggestions">
+          <button class="suggestion-card" data-prompt="اشرحلي درس صعب بطريقة سهلة"><span class="suggestion-icon">▧</span><strong>شرح درس</strong><small>نفهم المعلومة خطوة بخطوة</small><b>←</b></button>
+          <button class="suggestion-card" data-prompt="ابحث عن آخر أخبار وزارة التربية والتعليم المصرية مع المصادر الرسمية"><span class="suggestion-icon">⌕</span><strong>بحث بمصادر</strong><small>معلومات وروابط للمراجعة</small><b>←</b></button>
+          <button class="suggestion-card" data-prompt="ساعدني أتعلم مهارة جديدة من البداية"><span class="suggestion-icon">✦</span><strong>تعلّم حاجة جديدة</strong><small>خطة سهلة للمبتدئين</small><b>←</b></button>
+          <button class="suggestion-card" data-prompt="ساعدني أبحث عن مكان أو خدمة في مصر"><span class="suggestion-icon">⌖</span><strong>الأماكن في مصر</strong><small>ابدأ باسم المكان أو الخدمة</small><b>←</b></button>
+        </div>
+      </section>
+
+      <section class="chat-area hidden" id="chatArea" aria-live="polite">
+        <div class="chat-messages" id="messages"></div>
+      </section>
+
+      <section class="composer-wrap">
+        <div class="search-status"><span class="search-icon">⌕</span><span>البحث التلقائي</span><span class="status-pill">مخطط للربط</span><button id="searchInfo" aria-label="معلومات عن البحث">ⓘ</button></div>
+        <form class="composer" id="chatForm">
+          <textarea id="questionInput" rows="1" placeholder="اكتب سؤالك هنا يا برو..." aria-label="اكتب سؤالك" required></textarea>
+          <div class="composer-footer">
+            <span class="privacy-note">لا تكتب كلمات مرور أو بيانات سرية</span>
+            <button class="send-button" type="submit" aria-label="إرسال السؤال">↑</button>
+          </div>
+        </form>
+        <p class="disclaimer" id="disclaimer">نسخة أولية للواجهة. ربط الذكاء الاصطناعي والبحث الفعلي يحتاج إعداد الخادم ومفاتيح الخدمة.</p>
+      </section>
+      <footer>صُنع للتعلّم والمعرفة · <span>BRO</span></footer>
+    </main>
+  </div>
+
+  <dialog class="auth-dialog" id="authDialog">
+    <form method="dialog" class="dialog-close-form"><button class="icon-button" aria-label="إغلاق">×</button></form>
+    <div class="dialog-bot">🤖</div>
+    <h2 id="authTitle">تسجيل الدخول</h2>
+    <p>واجهة تجريبية لتجربة الترحيب باسمك. لم يتم ربط حسابات حقيقية بعد.</p>
+    <form id="authForm">
+      <label for="userName">اسمك</label>
+      <input id="userName" name="userName" autocomplete="name" placeholder="اكتب الاسم اللي تحب بوبوت يناديك بيه" required>
+      <label for="userEmail">البريد الإلكتروني (اختياري في المعاينة)</label>
+      <input id="userEmail" name="userEmail" type="email" autocomplete="email" placeholder="name@example.com">
+      <button class="button button-primary full-width" type="submit">متابعة المعاينة</button>
+    </form>
+    <small>لا تستخدم بيانات حقيقية حساسة؛ هذه المعاينة لا تنشئ حسابًا آمنًا.</small>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
