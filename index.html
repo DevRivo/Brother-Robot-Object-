@@ -1,167 +1,949 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0f766e">
-  <title>BRO | بوبوت مساعدك الذكي</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="BRO مساعدك الذكي للبحث والتعلم والمعرفة.">
+  <meta name="theme-color" content="#101827">
+
+  <title>BRO | مساعدك الذكي</title>
+
+  <!-- ملف التصميم -->
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
+
+  <style>
+    /* تنسيقات أساسية للصفحة الرئيسية */
+
+    :root {
+      --bro-bg: #101827;
+      --bro-card: #192438;
+      --bro-primary: #6d7cff;
+      --bro-text: #f4f6ff;
+      --bro-muted: #aab4c8;
+      --bro-border: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--bro-bg);
+      color: var(--bro-text);
+      line-height: 1.8;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .bro-container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* رأس الموقع */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(16, 24, 39, 0.96);
+      border-bottom: 1px solid var(--bro-border);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-content {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 25px;
+      font-weight: bold;
+      color: white;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: var(--bro-primary);
+      border-radius: 13px;
+      font-size: 23px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .main-nav a {
+      color: var(--bro-muted);
+      transition: color 0.2s;
+    }
+
+    .main-nav a:hover {
+      color: white;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .button-primary {
+      color: white;
+      background: var(--bro-primary);
+    }
+
+    .button-primary:hover {
+      background: #5869ed;
+      transform: translateY(-1px);
+    }
+
+    .button-secondary {
+      color: white;
+      background: transparent;
+      border-color: var(--bro-border);
+    }
+
+    .button-secondary:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .menu-toggle {
+      display: none;
+      padding: 8px 12px;
+      background: transparent;
+      color: white;
+      border: 1px solid var(--bro-border);
+      border-radius: 9px;
+      font-size: 22px;
+    }
+
+    /* الواجهة الرئيسية */
+
+    .hero {
+      padding: 90px 0 75px;
+      text-align: center;
+      background:
+        radial-gradient(
+          ellipse at 50% 0%,
+          rgba(109, 124, 255, 0.17),
+          transparent 65%
+        );
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: 6px 15px;
+      border: 1px solid rgba(109, 124, 255, 0.4);
+      background: rgba(109, 124, 255, 0.1);
+      border-radius: 30px;
+      color: #c2c9ff;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      margin: 22px auto 15px;
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.35;
+    }
+
+    .hero h1 span {
+      color: #8792ff;
+    }
+
+    .hero-description {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--bro-muted);
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-note {
+      margin-top: 22px;
+      color: var(--bro-muted);
+      font-size: 13px;
+    }
+
+    /* أقسام الموقع */
+
+    .features {
+      padding: 60px 0 80px;
+    }
+
+    .section-heading {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 8px;
+      font-size: 30px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--bro-muted);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      display: block;
+      padding: 25px;
+      background: var(--bro-card);
+      border: 1px solid var(--bro-border);
+      border-radius: 18px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(109, 124, 255, 0.65);
+    }
+
+    .feature-icon {
+      width: 53px;
+      height: 53px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 15px;
+      background: rgba(109, 124, 255, 0.13);
+      border-radius: 15px;
+      font-size: 27px;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--bro-muted);
+      font-size: 15px;
+    }
+
+    .feature-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: #aeb7ff;
+      font-size: 14px;
+    }
+
+    /* منطقة المساعد */
+
+    .assistant-section {
+      padding: 25px 0 80px;
+    }
+
+    .assistant-panel {
+      padding: 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      background: linear-gradient(
+        120deg,
+        #202e49,
+        #192438
+      );
+      border: 1px solid var(--bro-border);
+      border-radius: 22px;
+    }
+
+    .assistant-panel h2 {
+      margin-top: 0;
+    }
+
+    .assistant-panel p {
+      color: var(--bro-muted);
+    }
+
+    .assistant-symbol {
+      width: 100px;
+      height: 100px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      background: rgba(109, 124, 255, 0.15);
+      border: 1px solid rgba(109, 124, 255, 0.3);
+      border-radius: 28px;
+      font-size: 53px;
+    }
+
+    /* تذييل الموقع */
+
+    .site-footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--bro-border);
+      color: var(--bro-muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* نافذة الحساب */
+
+    .auth-dialog {
+      width: min(420px, calc(100% - 36px));
+      max-width: 420px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 28px;
+      color: var(--bro-text);
+      background: #192438;
+      border: 1px solid var(--bro-border);
+      border-radius: 20px;
+      box-sizing: border-box;
+    }
+
+    .auth-dialog::backdrop {
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(4px);
+    }
+
+    .dialog-close-form {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 5px;
+    }
+
+    .icon-button {
+      width: 36px;
+      height: 36px;
+      color: white;
+      background: transparent;
+      border: 1px solid var(--bro-border);
+      border-radius: 10px;
+      font-size: 23px;
+    }
+
+    .dialog-bot {
+      text-align: center;
+      font-size: 42px;
+    }
+
+    .auth-dialog h2 {
+      margin: 8px 0;
+      text-align: center;
+    }
+
+    .auth-description {
+      margin: 0 0 22px;
+      color: var(--bro-muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .auth-dialog label {
+      display: block;
+      margin: 14px 0 6px;
+      font-size: 14px;
+    }
+
+    .auth-dialog input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      color: white;
+      background: #101827;
+      border: 1px solid #35425b;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .auth-dialog input:focus {
+      border-color: var(--bro-primary);
+    }
+
+    .auth-dialog input::placeholder {
+      color: #8290a8;
+    }
+
+    .full-width {
+      width: 100%;
+      margin-top: 22px;
+    }
+
+    .auth-switch {
+      margin: 20px 0 8px;
+      text-align: center;
+      color: var(--bro-muted);
+      font-size: 14px;
+    }
+
+    .auth-switch button {
+      padding: 0;
+      color: #aeb7ff;
+      background: none;
+      border: none;
+      font-weight: bold;
+    }
+
+    .auth-message {
+      display: block;
+      margin-top: 12px;
+      color: #ffd28a;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    /* الشاشات الصغيرة */
+
+    @media (max-width: 850px) {
+      .header-content {
+        flex-wrap: wrap;
+        padding: 12px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .main-nav {
+        display: none;
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .main-nav a {
+        padding: 10px;
+        border-top: 1px solid var(--bro-border);
+      }
+
+      .header-actions {
+        margin-right: auto;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 65px 0 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .site-logo {
+        font-size: 21px;
+      }
+
+      .logo-mark {
+        width: 36px;
+        height: 36px;
+      }
+
+      .header-actions .button {
+        padding: 9px 11px;
+        font-size: 13px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .feature-card {
+        padding: 20px;
+      }
+
+      .assistant-panel {
+        padding: 22px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .assistant-symbol {
+        width: 70px;
+        height: 70px;
+        font-size: 38px;
+      }
+
+      .auth-dialog {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <button class="icon-button mobile-menu" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
-    <a class="brand" href="index.html" aria-label="BRO الصفحة الرئيسية">
-      <span class="brand-mark">B</span>
-      <span><strong>BRO</strong><small>مساعدك الذكي</small></span>
-    </a>
-    <nav class="top-links" aria-label="القائمة الرئيسية">
-      <button class="nav-link active" data-section="chat">المحادثة</button>
-      <button class="nav-link" data-section="education">التعليم</button>
-      <button class="nav-link" data-section="knowledge">الدين والمعرفة</button>
-      <button class="nav-link" data-section="places">الأماكن في مصر</button>
-    </nav>
-    <div class="account-actions">
-      <button class="button button-quiet" id="loginOpen">لديك حساب</button>
-      <button class="button button-primary" id="signupOpen">إنشاء حساب</button>
+
+  <!-- رأس الموقع -->
+  <header class="site-header">
+    <div class="bro-container header-content">
+
+      <a href="index.html" class="site-logo" aria-label="الصفحة الرئيسية">
+        <span class="logo-mark">B</span>
+        <span>BRO</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="فتح القائمة"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">الرئيسية</a>
+        <a href="education.html">التعليم</a>
+        <a href="religion.html">الدين والمعرفة</a>
+        <a href="places.html">الأماكن والخدمات</a>
+        <a href="chat.html">المساعد الذكي</a>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          type="button"
+          class="button button-secondary"
+          id="loginButton"
+        >
+          تسجيل الدخول
+        </button>
+
+        <button
+          type="button"
+          class="button button-primary"
+          id="registerButton"
+        >
+          إنشاء حساب
+        </button>
+      </div>
+
     </div>
   </header>
 
-  <div class="layout">
-    <aside class="sidebar" id="sidebar">
-      <button class="new-chat" id="newChat">＋ محادثة جديدة</button>
-      <p class="sidebar-label">مساحة بوبوت</p>
-      <button class="side-item active" data-section="chat"><span>▤</span> المحادثة</button>
-      <button class="side-item" data-section="education"><span>▧</span> التعليم والدراسة</button>
-      <button class="side-item" data-section="knowledge"><span>◉</span> الدين والمعرفة</button>
-      <button class="side-item" data-section="places"><span>⌖</span> الأماكن في مصر</button>
-      <div class="sidebar-bottom">
-        <div class="mini-boboot">🤖</div>
-        <strong>بوبوت</strong>
-        <p>مساعد نصي يبحث ويشرح ويعرض المصادر.</p>
-        <span class="status"><i></i> الواجهة جاهزة للتجربة</span>
+  <main>
+
+    <!-- الواجهة الرئيسية -->
+    <section class="hero">
+      <div class="bro-container">
+
+        <span class="hero-label">
+          المعرفة والبحث في مكان واحد
+        </span>
+
+        <h1>
+          أهلاً بك في <span>BRO</span><br>
+          اكتشف وتعلّم وابحث بسهولة
+        </h1>
+
+        <p class="hero-description">
+          مكان يساعدك على الوصول إلى المعرفة، واستكشاف الموضوعات
+          المختلفة، والتعلّم، والبحث عن المعلومات التي تحتاج إليها.
+        </p>
+
+        <div class="hero-actions">
+          <a href="chat.html" class="button button-primary">
+            ابدأ المحادثة
+          </a>
+
+          <a href="#sections" class="button button-secondary">
+            استكشف الأقسام
+          </a>
+        </div>
+
+        <p class="hero-note">
+          استخدم الموقع لاكتشاف معلومات جديدة وتوسيع معرفتك.
+        </p>
+
       </div>
-    </aside>
+    </section>
 
-    <main class="main-content">
-      <section class="welcome" id="welcome">
-        <div class="eyebrow"><span class="live-dot"></span> مساعد ذكي للمعلومات والتعلّم</div>
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <h1>أهلًا <span id="welcomeName">بيك</span>،<br>أنا <span class="teal-text">بوبوت</span> 🤖</h1>
-            <p>اسأل عن أي حاجة، وخلّيني أساعدك تفهمها وتوصل للمعلومة ومصدرها.</p>
-            <div class="hero-points">
-              <span>✓ شرح بسيط</span><span>✓ مصادر وروابط</span><span>✓ عربي واضح</span>
-            </div>
-          </div>
-          <div class="robot-card">
-            <div class="robot-glow"></div>
-            <img src="images/BRO.png" alt="تصميم روبوت بوبوت المقترح" class="robot-image">
-            <span class="robot-caption">بوبوت · مساعد BRO</span>
-          </div>
+    <!-- أقسام الموقع -->
+    <section class="features" id="sections">
+      <div class="bro-container">
+
+        <div class="section-heading">
+          <h2>استكشف أقسام BRO</h2>
+          <p>
+            اختر القسم المناسب لما تريد معرفته أو تعلّمه.
+          </p>
         </div>
-        <div class="suggestion-heading"><h2>تحب نبدأ بإيه؟</h2><span>اختار اقتراح أو اكتب سؤالك</span></div>
-        <div class="suggestions">
-          <button class="suggestion-card" data-prompt="اشرحلي درس صعب بطريقة سهلة"><span class="suggestion-icon">▧</span><strong>شرح درس</strong><small>نفهم المعلومة خطوة بخطوة</small><b>←</b></button>
-          <button class="suggestion-card" data-prompt="ابحث عن آخر أخبار وزارة التربية والتعليم المصرية مع المصادر الرسمية"><span class="suggestion-icon">⌕</span><strong>بحث بمصادر</strong><small>معلومات وروابط للمراجعة</small><b>←</b></button>
-          <button class="suggestion-card" data-prompt="ساعدني أتعلم مهارة جديدة من البداية"><span class="suggestion-icon">✦</span><strong>تعلّم حاجة جديدة</strong><small>خطة سهلة للمبتدئين</small><b>←</b></button>
-          <button class="suggestion-card" data-prompt="ساعدني أبحث عن مكان أو خدمة في مصر"><span class="suggestion-icon">⌖</span><strong>الأماكن في مصر</strong><small>ابدأ باسم المكان أو الخدمة</small><b>←</b></button>
+
+        <div class="features-grid">
+
+          <!-- المساعد الذكي -->
+          <a href="chat.html" class="feature-card">
+            <div class="feature-icon">💬</div>
+
+            <h3>المساعد الذكي</h3>
+
+            <p>
+              اطرح أسئلتك واستكشف الأفكار والموضوعات المختلفة
+              من خلال واجهة محادثة عربية.
+            </p>
+
+            <span class="feature-link">
+              انتقل إلى المساعد ←
+            </span>
+          </a>
+
+          <!-- التعليم -->
+          <a href="education.html" class="feature-card">
+            <div class="feature-icon">📚</div>
+
+            <h3>التعليم والتعلّم</h3>
+
+            <p>
+              اكتشف موضوعات تعليمية، وابحث عن الدروس
+              والمصادر التي تساعدك على التعلّم.
+            </p>
+
+            <span class="feature-link">
+              استكشف التعليم ←
+            </span>
+          </a>
+
+          <!-- الدين والمعرفة -->
+          <a href="religion.html" class="feature-card">
+            <div class="feature-icon">📖</div>
+
+            <h3>الدين والمعرفة</h3>
+
+            <p>
+              تعرّف على المعلومات الدينية والمعارف المرتبطة
+              بالأديان المختلفة باحترام وموضوعية.
+            </p>
+
+            <span class="feature-link">
+              اكتشف القسم ←
+            </span>
+          </a>
+
+          <!-- الأماكن والخدمات -->
+          <a href="places.html" class="feature-card">
+            <div class="feature-icon">🌍</div>
+
+            <h3>الأماكن والخدمات</h3>
+
+            <p>
+              ابحث عن الأماكن والمواقع والخدمات،
+              واكتشف المعلومات المتاحة عنها.
+            </p>
+
+            <span class="feature-link">
+              استكشف الأماكن ←
+            </span>
+          </a>
+
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="chat-area hidden" id="chatArea" aria-live="polite">
-        <div class="chat-messages" id="messages"></div>
-      </section>
+    <!-- التعريف بالمساعد -->
+    <section class="assistant-section">
+      <div class="bro-container">
 
-      <section class="composer-wrap">
-        <div class="search-status"><span class="search-icon">⌕</span><span>البحث التلقائي</span><span class="status-pill">مخطط للربط</span><button id="searchInfo" aria-label="معلومات عن البحث">ⓘ</button></div>
-        <form class="composer" id="chatForm">
-          <textarea id="questionInput" rows="1" placeholder="اكتب سؤالك هنا يا برو..." aria-label="اكتب سؤالك" required></textarea>
-          <div class="composer-footer">
-            <span class="privacy-note">لا تكتب كلمات مرور أو بيانات سرية</span>
-            <button class="send-button" type="submit" aria-label="إرسال السؤال">↑</button>
+        <div class="assistant-panel">
+
+          <div>
+            <h2>قابل بوبوت 🤖</h2>
+
+            <p>
+              مساعد BRO الذي يمكنك من خلاله استكشاف المعرفة
+              وطرح الأسئلة من خلال واجهة سهلة الاستخدام.
+            </p>
+
+            <a href="chat.html" class="button button-primary">
+              تحدث مع بوبوت
+            </a>
           </div>
-        </form>
-        <p class="disclaimer" id="disclaimer">نسخة أولية للواجهة. ربط الذكاء الاصطناعي والبحث الفعلي يحتاج إعداد الخادم ومفاتيح الخدمة.</p>
-      </section>
-      <footer>صُنع للتعلّم والمعرفة · <span>BRO</span></footer>
-    </main>
-  </div>
-<!-- نافذة الحساب -->
-<dialog class="auth-dialog" id="authDialog">
 
-  <!-- زر الإغلاق -->
-  <form method="dialog" class="dialog-close-form">
-    <button class="icon-button" aria-label="إغلاق">×</button>
-  </form>
+          <div class="assistant-symbol" aria-hidden="true">
+            🤖
+          </div>
 
-  <div class="dialog-bot">🤖</div>
+        </div>
+      </div>
+    </section>
 
-  <h2 id="authTitle">تسجيل الدخول</h2>
+  </main>
 
-  <p id="authDescription">
-    أهلاً بعودتك! سجل دخولك للمتابعة.
-  </p>
-
-  <!-- نموذج الحساب -->
-  <form id="authForm">
-
-    <!-- الاسم: يظهر عند إنشاء حساب فقط -->
-    <div id="nameField" hidden>
-      <label for="userName">الاسم</label>
-      <input
-        id="userName"
-        name="userName"
-        type="text"
-        autocomplete="name"
-        placeholder="اكتب اسمك"
-      >
+  <!-- تذييل الموقع -->
+  <footer class="site-footer">
+    <div class="bro-container">
+      <p> BRO — المعرفة أقرب إليك.</p>
     </div>
+  </footer>
 
-    <!-- البريد الإلكتروني -->
-    <label for="userEmail">البريد الإلكتروني</label>
-    <input
-      id="userEmail"
-      name="userEmail"
-      type="email"
-      autocomplete="email"
-      placeholder="name@example.com"
-      required
-    >
+  <!-- نافذة تسجيل الدخول وإنشاء الحساب -->
+  <dialog class="auth-dialog" id="authDialog">
 
-    <!-- كلمة المرور -->
-    <label for="userPassword">كلمة المرور</label>
-    <input
-      id="userPassword"
-      name="userPassword"
-      type="password"
-      autocomplete="current-password"
-      placeholder="اكتب كلمة المرور"
-      required
-    >
+    <form method="dialog" class="dialog-close-form">
+      <button
+        class="icon-button"
+        type="submit"
+        aria-label="إغلاق النافذة"
+      >
+        ×
+      </button>
+    </form>
 
-    <button
-      class="button button-primary full-width"
-      type="submit"
-      id="authSubmit"
-    >
-      تسجيل الدخول
-    </button>
+    <div class="dialog-bot" aria-hidden="true">🤖</div>
 
-  </form>
+    <h2 id="authTitle">تسجيل الدخول</h2>
 
-  <!-- التنقل بين تسجيل الدخول وإنشاء الحساب -->
-  <p class="auth-switch">
-    <span id="authSwitchText">ليس لديك حساب؟</span>
+    <p class="auth-description" id="authDescription">
+      أهلاً بعودتك! سجل دخولك للمتابعة.
+    </p>
 
-    <button type="button" id="authSwitch">
-      إنشاء حساب
-    </button>
-  </p>
+    <form id="authForm">
 
-  <small id="authMessage" role="status"></small>
+      <!-- يظهر فقط عند إنشاء حساب -->
+      <div id="nameField" hidden>
+        <label for="userName">الاسم</label>
 
-</dialog>
-  <div class="toast" id="toast" role="status"></div>
+        <input
+          id="userName"
+          name="userName"
+          type="text"
+          autocomplete="name"
+          placeholder="اكتب اسمك"
+          minlength="2"
+        >
+      </div>
+
+      <!-- يظهر في الحالتين -->
+      <label for="userEmail">البريد الإلكتروني</label>
+
+      <input
+        id="userEmail"
+        name="userEmail"
+        type="email"
+        autocomplete="email"
+        placeholder="name@example.com"
+        required
+      >
+
+      <label for="userPassword">كلمة المرور</label>
+
+      <input
+        id="userPassword"
+        name="userPassword"
+        type="password"
+        autocomplete="current-password"
+        placeholder="اكتب كلمة المرور"
+        minlength="8"
+        required
+      >
+
+      <button
+        class="button button-primary full-width"
+        type="submit"
+        id="authSubmit"
+      >
+        تسجيل الدخول
+      </button>
+
+    </form>
+
+    <p class="auth-switch">
+      <span id="authSwitchText">ليس لديك حساب؟</span>
+
+      <button type="button" id="authSwitch">
+        إنشاء حساب
+      </button>
+    </p>
+
+    <small
+      class="auth-message"
+      id="authMessage"
+      role="status"
+      aria-live="polite"
+    ></small>
+
+  </dialog>
+
+  <!-- ملف JavaScript الأساسي -->
+  <script src="js/script.js"></script>
+
+  <!-- وظائف القائمة ونافذة الحساب -->
+  <script>
+    (function () {
+      const dialog = document.getElementById("authDialog");
+      const authForm = document.getElementById("authForm");
+
+      const title = document.getElementById("authTitle");
+      const description = document.getElementById("authDescription");
+      const submitButton = document.getElementById("authSubmit");
+
+      const nameField = document.getElementById("nameField");
+      const userName = document.getElementById("userName");
+      const userPassword = document.getElementById("userPassword");
+
+      const switchButton = document.getElementById("authSwitch");
+      const switchText = document.getElementById("authSwitchText");
+      const message = document.getElementById("authMessage");
+
+      let mode = "login";
+
+      // تغيير وضع النافذة
+      function setMode(newMode) {
+        mode = newMode;
+
+        const registering = mode === "register";
+
+        title.textContent = registering
+          ? "إنشاء حساب جديد"
+          : "تسجيل الدخول";
+
+        description.textContent = registering
+          ? "أنشئ حسابك للبدء مع BRO."
+          : "أهلاً بعودتك! سجل دخولك للمتابعة.";
+
+        submitButton.textContent = registering
+          ? "إنشاء الحساب"
+          : "تسجيل الدخول";
+
+        nameField.hidden = !registering;
+        userName.required = registering;
+
+        userPassword.autocomplete = registering
+          ? "new-password"
+          : "current-password";
+
+        switchText.textContent = registering
+          ? "لديك حساب بالفعل؟"
+          : "ليس لديك حساب؟";
+
+        switchButton.textContent = registering
+          ? "تسجيل الدخول"
+          : "إنشاء حساب";
+
+        message.textContent = "";
+      }
+
+      // فتح نافذة الحساب
+      function openAuth(newMode) {
+        setMode(newMode);
+
+        if (!dialog.open) {
+          dialog.showModal();
+        }
+      }
+
+      document
+        .getElementById("loginButton")
+        .addEventListener("click", function () {
+          openAuth("login");
+        });
+
+      document
+        .getElementById("registerButton")
+        .addEventListener("click", function () {
+          openAuth("register");
+        });
+
+      // التبديل بين تسجيل الدخول وإنشاء الحساب
+      switchButton.addEventListener("click", function () {
+        setMode(mode === "login" ? "register" : "login");
+      });
+
+      // القائمة على الهاتف والتابلت
+      const menuButton = document.getElementById("menuToggle");
+      const navigation = document.getElementById("mainNav");
+
+      menuButton.addEventListener("click", function () {
+        const isOpen = navigation.classList.toggle("open");
+
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute(
+          "aria-label",
+          isOpen ? "إغلاق القائمة" : "فتح القائمة"
+        );
+      });
+
+      navigation.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          navigation.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      // النموذج لا ينشئ حسابًا حقيقيًا قبل ربط خدمة الحسابات
+      authForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!authForm.reportValidity()) {
+          return;
+        }
+
+        message.textContent =
+          "لم يتم ربط الحسابات بعد. يلزم توصيل خدمة تسجيل آمنة لإكمال العملية.";
+      });
+
+      // الوضع الافتراضي عند فتح النافذة
+      setMode("login");
+    })();
+  </script>
+
 </body>
-</html>
+  </html>
