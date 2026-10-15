@@ -88,22 +88,65 @@
     </main>
   </div>
 
-  <dialog class="auth-dialog" id="authDialog">
-    <form method="dialog" class="dialog-close-form"><button class="icon-button" aria-label="إغلاق">×</button></form>
-    <div class="dialog-bot">🤖</div>
-    <h2 id="authTitle">تسجيل الدخول</h2>
-    <p>واجهة تجريبية لتجربة الترحيب باسمك. لم يتم ربط حسابات حقيقية بعد.</p>
-    <form id="authForm">
-      <label for="userName">اسمك</label>
-      <input id="userName" name="userName" autocomplete="name" placeholder="اكتب الاسم اللي تحب بوبوت يناديك بيه" required>
-      <label for="userEmail">البريد الإلكتروني (اختياري في المعاينة)</label>
-      <input id="userEmail" name="userEmail" type="email" autocomplete="email" placeholder="name@example.com">
-      <label for="password">اكتب رمز</label>
-      <input id="password" name="password" type="password" autocomplete="password" placeholder="اكتب رمز تسجيل دخول">
-      <button class="button button-primary full-width" type="submit">متابعة المعاينة</button>
-    </form>
-    <small>لا تستخدم بيانات حقيقية حساسة؛ هذه المعاينة لا تنشئ حسابًا آمنًا.</small>
-  </dialog>
+<!-- نافذة تسجيل الدخول -->
+<dialog class="auth-dialog" id="authDialog">
+
+  <form method="dialog" class="dialog-close-form">
+    <button class="icon-button" aria-label="إغلاق">×</button>
+  </form>
+
+  <div class="dialog-bot">🤖</div>
+
+  <h2 id="authTitle">تسجيل الدخول</h2>
+
+  <p>أهلاً بيك في BRO، سجّل دخولك للمتابعة مع بوبوت.</p>
+
+  <form id="authForm">
+
+    <label for="userName">الاسم</label>
+    <input
+      id="userName"
+      name="userName"
+      type="text"
+      autocomplete="name"
+      placeholder="اكتب اسمك"
+      required
+    >
+
+    <label for="userEmail">البريد الإلكتروني</label>
+    <input
+      id="userEmail"
+      name="userEmail"
+      type="email"
+      autocomplete="email"
+      placeholder="name@example.com"
+      required
+    >
+
+    <label for="password">رمز تسجيل الدخول</label>
+    <input
+      id="password"
+      name="password"
+      type="password"
+      autocomplete="current-password"
+      placeholder="اكتب رمز تسجيل الدخول"
+      required
+    >
+
+    <button
+      class="button button-primary full-width"
+      type="submit"
+    >
+      تسجيل الدخول
+    </button>
+
+  </form>
+
+  <small>
+    لحماية حسابك، يجب ربط تسجيل الدخول بنظام حسابات آمن.
+  </small>
+
+</dialog>
   <div class="toast" id="toast" role="status"></div>
 </body>
 </html>
