@@ -87,10 +87,10 @@
       <footer>صُنع للتعلّم والمعرفة · <span>BRO</span></footer>
     </main>
   </div>
-
-<!-- نافذة تسجيل الدخول -->
+<!-- نافذة الحساب -->
 <dialog class="auth-dialog" id="authDialog">
 
+  <!-- زر الإغلاق -->
   <form method="dialog" class="dialog-close-form">
     <button class="icon-button" aria-label="إغلاق">×</button>
   </form>
@@ -99,20 +99,26 @@
 
   <h2 id="authTitle">تسجيل الدخول</h2>
 
-  <p>أهلاً بيك في BRO، سجّل دخولك للمتابعة مع بوبوت.</p>
+  <p id="authDescription">
+    أهلاً بعودتك! سجل دخولك للمتابعة.
+  </p>
 
+  <!-- نموذج الحساب -->
   <form id="authForm">
 
-    <label for="userName">الاسم</label>
-    <input
-      id="userName"
-      name="userName"
-      type="text"
-      autocomplete="name"
-      placeholder="اكتب اسمك"
-      required
-    >
+    <!-- الاسم: يظهر عند إنشاء حساب فقط -->
+    <div id="nameField" hidden>
+      <label for="userName">الاسم</label>
+      <input
+        id="userName"
+        name="userName"
+        type="text"
+        autocomplete="name"
+        placeholder="اكتب اسمك"
+      >
+    </div>
 
+    <!-- البريد الإلكتروني -->
     <label for="userEmail">البريد الإلكتروني</label>
     <input
       id="userEmail"
@@ -123,28 +129,37 @@
       required
     >
 
-    <label for="password">رمز تسجيل الدخول</label>
+    <!-- كلمة المرور -->
+    <label for="userPassword">كلمة المرور</label>
     <input
-      id="password"
-      name="password"
+      id="userPassword"
+      name="userPassword"
       type="password"
       autocomplete="current-password"
-      placeholder="اكتب رمز تسجيل الدخول"
+      placeholder="اكتب كلمة المرور"
       required
     >
 
     <button
       class="button button-primary full-width"
       type="submit"
+      id="authSubmit"
     >
       تسجيل الدخول
     </button>
 
   </form>
 
-  <small>
-    لحماية حسابك، يجب ربط تسجيل الدخول بنظام حسابات آمن.
-  </small>
+  <!-- التنقل بين تسجيل الدخول وإنشاء الحساب -->
+  <p class="auth-switch">
+    <span id="authSwitchText">ليس لديك حساب؟</span>
+
+    <button type="button" id="authSwitch">
+      إنشاء حساب
+    </button>
+  </p>
+
+  <small id="authMessage" role="status"></small>
 
 </dialog>
   <div class="toast" id="toast" role="status"></div>
