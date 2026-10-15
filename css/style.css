@@ -114,7 +114,15 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
                         .hero-copy h1{font-size:38px}
                         .hero-copy>p{font-size:13px}
                         .robot-card{min-height:210px;max-height:245px}
-                        .robot-image{height:225px;object-position:25% 22%}
+                        .robot-image {
+    width: 100%;
+    height: 275px;
+    object-fit: contain;
+    object-position: center;
+    mix-blend-mode: multiply;
+    position: relative;
+    z-index: 1;
+                        }
                         .suggestion-heading{align-items:flex-start;flex-direction:column;gap:2px}
                         .suggestion-heading h2{font-size:17px}
                         .suggestions{gap:9px}
