@@ -113,3 +113,79 @@ $("#authForm").addEventListener("submit", event => {
 });
 // Start with the selected section and responsive controls ready.
 setSection("chat");
+// إدارة نافذة تسجيل الدخول وإنشاء الحساب
+const authDialog = document.getElementById("authDialog");
+const authForm = document.getElementById("authForm");
+
+const authTitle = document.getElementById("authTitle");
+const authDescription = document.getElementById("authDescription");
+const authSubmit = document.getElementById("authSubmit");
+
+const nameField = document.getElementById("nameField");
+const userName = document.getElementById("userName");
+
+const authSwitch = document.getElementById("authSwitch");
+const authSwitchText = document.getElementById("authSwitchText");
+const authMessage = document.getElementById("authMessage");
+
+let authMode = "login";
+
+// تغيير وضع النافذة
+function setAuthMode(mode) {
+  authMode = mode;
+
+  const isRegister = mode === "register";
+
+  authTitle.textContent = isRegister
+    ? "إنشاء حساب جديد"
+    : "تسجيل الدخول";
+
+  authDescription.textContent = isRegister
+    ? "أنشئ حسابك وابدأ رحلتك مع بوبوت."
+    : "أهلاً بعودتك! سجل دخولك للمتابعة.";
+
+  authSubmit.textContent = isRegister
+    ? "إنشاء الحساب"
+    : "تسجيل الدخول";
+
+  nameField.hidden = !isRegister;
+  userName.required = isRegister;
+
+  document.getElementById("userPassword").autocomplete =
+    isRegister ? "new-password" : "current-password";
+
+  authSwitchText.textContent = isRegister
+    ? "لديك حساب بالفعل؟"
+    : "ليس لديك حساب؟";
+
+  authSwitch.textContent = isRegister
+    ? "تسجيل الدخول"
+    : "إنشاء حساب";
+
+  authMessage.textContent = "";
+}
+
+// التنقل بين النافذتين
+authSwitch.addEventListener("click", function () {
+  setAuthMode(
+    authMode === "login" ? "register" : "login"
+  );
+});
+
+// فتح نافذة الحساب
+// استدعِ هذه الدالة عند الضغط على زر الحساب في موقعك
+function openAuth(mode = "login") {
+  setAuthMode(mode);
+
+  if (!authDialog.open) {
+    authDialog.showModal();
+  }
+}
+
+// منع الإرسال التجريبي دون ربط خدمة حسابات
+authForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  authMessage.textContent =
+    "الواجهة جاهزة، لكن يلزم ربط خدمة حسابات لتسجيل الدخول وإنشاء الحساب فعليًا.";
+});
