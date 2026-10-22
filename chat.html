@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدردشة | برو BRO</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="الرئيسية">
+        <span class="brand-mark">B</span>
+        <span class="brand-text">برو <small>BRO</small></span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+
+      <nav class="navigation" id="navigation" aria-label="القائمة الرئيسية">
+        <a href="index.html">الرئيسية</a>
+        <a class="active" href="chat.html">الدردشة</a>
+        <a href="education.html">التعليم</a>
+        <a href="places.html">الأماكن</a>
+        <a href="religion.html">المعلومات الدينية</a>
+      </nav>
+    </header>
+
+    <section class="page-header">
+      <div class="page-header-card">
+        <span class="section-label">الدردشة الذكية</span>
+        <h1>تحدث مع تمتم</h1>
+        <p>واجهة محادثة عربية أولية، مصممة لتجربة سهلة ومريحة، مع إمكانية التطوير لاحقًا إلى خدمة ذكية كاملة.</p>
+      </div>
+    </section>
+
+    <main class="main-panel">
+      <aside class="sidebar-panel">
+        <div class="robot-box">
+          <div class="assistant-robot robot-mini" aria-label="تمتم الروبوت">
+            <div class="robot-antenna"></div>
+            <div class="robot-head">
+              <div class="robot-eye left"></div>
+              <div class="robot-eye right"></div>
+              <div class="robot-mouth"></div>
+            </div>
+            <div class="robot-body">
+              <div class="robot-panel"></div>
+            </div>
+            <div class="robot-arm left"></div>
+            <div class="robot-arm right"></div>
+            <div class="robot-leg left"></div>
+            <div class="robot-leg right"></div>
+          </div>
+        </div>
+
+        <div class="side-box">
+          <h3>ماذا يمكن لتمتم أن يساعدك فيه؟</h3>
+          <ul>
+            <li>شرح الموضوعات بطريقة مبسطة</li>
+            <li>توجيهك إلى القسم المناسب</li>
+            <li>مساعدة الطالب في الفهم</li>
+            <li>تجربة محادثة عربية سهلة</li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="content-panel chat-shell">
+        <div class="chat-header">
+          <div class="chat-title">جلسة تمتم</div>
+          <div class="chat-status">متصل</div>
+        </div>
+
+        <div class="suggest-chips" aria-label="اقتراحات سريعة">
+          <button type="button" class="chip" data-value="أحتاج شرحًا مبسطًا عن درس الرياضيات">شرح درس</button>
+          <button type="button" class="chip" data-value="أريد معرفة أماكن سياحية في القاهرة">أماكن في مصر</button>
+          <button type="button" class="chip" data-value="أرغب في معلومة دينية موثوقة ومبسطة">معلومة دينية</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+
+        <form class="chat-form" id="chatForm">
+          <input id="messageInput" class="chat-input" type="text" placeholder="اكتب سؤالك هنا..." aria-label="اكتب رسالة" />
+          <button class="chat-submit" type="submit">إرسال</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-brand">برو BRO</div>
+      <p class="developer-credit">المطور: <span>DerRivo</span></p>
+      <p class="copyright">© <span id="year"></span> برو BRO</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الأماكن | برو BRO</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="الرئيسية">
+        <span class="brand-mark">B</span>
+        <span class="brand-text">برو <small>BRO</small></span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+
+      <nav class="navigation" id="navigation" aria-label="القائمة الرئيسية">
+        <a href="index.html">الرئيسية</a>
+        <a href="chat.html">الدردشة</a>
+        <a href="education.html">التعليم</a>
+        <a class="active" href="places.html">الأماكن</a>
+        <a href="religion.html">المعلومات الدينية</a>
+      </nav>
+    </header>
+
+    <section class="page-header">
+      <div class="page-header-card">
+        <span class="section-label">الأماكن</span>
+        <h1>اكتشف مصر من حولك</h1>
+        <p>هذه الصفحة تمثل قالبًا عمليًا لعرض الأماكن المهمة في مصر، مع إمكانية ربطها لاحقًا بقاعدة بيانات حقيقية أو خدمة بحث مخصصة.</p>
+      </div>
+    </section>
+
+    <main class="page-grid">
+      <article class="card-panel">
+        <span class="feature-icon">🏙️</span>
+        <h3>القاهرة</h3>
+        <p>مدينة الثقافة والمعالم التاريخية، ومركز النشاط الاقتصادي والثقافي في مصر.</p>
+      </article>
+
+      <article class="card-panel">
+        <span class="feature-icon">🌊</span>
+        <h3>الإسكندرية</h3>
+        <p>مدينة البحر والواجهة البحرية، مع تاريخ طويل وحدائق ومتنزهات مهمة.</p>
+      </article>
+
+      <article class="card-panel">
+        <span class="feature-icon">🏺</span>
+        <h3>الأقصر</h3>
+        <p>مدينة الآثار والهوية التاريخية، ومقصد مميز للسياحة والزيارة.</p>
+      </article>
+    </main>
+
+    <section class="info-panel">
+      <h3>ملاحظة مهمة</h3>
+      <p>قائمة الأماكن هنا تمثل نموذجًا بصريًا وتجربة أولية فقط، وليست قاعدة بيانات حقيقية. عند ربط المشروع بخدمة حقيقية، يمكن استبدالها ببيانات موثوقة مع خريطة أو بحث جغرافي مناسب.</p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-brand">برو BRO</div>
+      <p class="developer-credit">المطور: <span>DerRivo</span></p>
+      <p class="copyright">© <span id="year"></span> برو BRO</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
