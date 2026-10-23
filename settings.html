@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إعدادات الحساب | برو BRO</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="الرئيسية">
+        <span class="brand-mark">B</span>
+        <span class="brand-text">برو <small>BRO</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+      <nav class="navigation" id="navigation" aria-label="القائمة الرئيسية">
+        <a href="index.html">الرئيسية</a>
+        <a href="education.html">التعليم</a>
+        <a href="places.html">الأماكن في مصر</a>
+        <a href="religion.html">المعلومات الدينية</a>
+        <a href="suggestions.html">الاقتراحات والشكاوى</a>
+        <a href="chat.html">الدردشة مع بوبوت</a>
+        <a href="login.html" class="active nav-account">الحساب</a>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="page-header">
+        <span class="section-label">الإعدادات</span>
+        <h1>إعدادات الحساب والتفضيلات</h1>
+        <p>واجهة تفضيلات أولية، جاهزة لإدارة الحفظ، الحركة، والخدمات المستقبلية.</p>
+      </section>
+
+      <section class="form-layout">
+        <div class="form-panel">
+          <h3>التفضيلات</h3>
+          <div class="form-columns">
+            <div class="field">
+              <label for="theme">نمط الواجهة</label>
+              <select id="theme">
+                <option>فاتح</option>
+                <option>داكن</option>
+                <option>تلقائي</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="motion">تقليل الحركة</label>
+              <select id="motion">
+                <option>مفعّل</option>
+                <option>غير مفعّل</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="province">المحافظة المفضلة</label>
+              <input id="province" type="text" placeholder="القاهرة" />
+            </div>
+            <div class="field">
+              <label for="notes">ملاحظات التفضيل</label>
+              <textarea id="notes" placeholder="اكتب ما يهمك في تجربة برو"></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="button button-primary">حفظ التفضيلات</button>
+              <button type="button" class="button button-secondary">حذف المحادثات</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="status-panel">
+          <h3>الخصوصية</h3>
+          <p>يجب تنفيذ إدارة البيانات فعليًا على الخادم عند ربط قاعدة البيانات، مع عدم تخزين كلمات المرور في المستودع.</p>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-brand">برو BRO</div>
+      <p class="developer-credit">المطور: <span>DerRivo</span></p>
+      <p class="copyright">© <span id="year"></span> برو BRO</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الاقتراحات والشكاوى | برو BRO</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="الرئيسية">
+        <span class="brand-mark">B</span>
+        <span class="brand-text">برو <small>BRO</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+      <nav class="navigation" id="navigation" aria-label="القائمة الرئيسية">
+        <a href="index.html">الرئيسية</a>
+        <a href="education.html">التعليم</a>
+        <a href="places.html">الأماكن في مصر</a>
+        <a href="religion.html">المعلومات الدينية</a>
+        <a href="suggestions.html" class="active">الاقتراحات والشكاوى</a>
+        <a href="chat.html">الدردشة مع بوبوت</a>
+        <a href="login.html" class="nav-account">الحساب</a>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="page-header">
+        <span class="section-label">الاقتراحات والشكاوى</span>
+        <h1>أرسل اقتراحك أو شكواك</h1>
+        <p>هذا النموذج جاهز للتتبع لاحقًا عند اتصال الخادم. حتى ذلك الحين، يُستخدم كواجهة واضحة للتقديم والتوثيق.</p>
+      </section>
+
+      <section class="form-layout">
+        <div class="form-panel">
+          <h3>نموذج الطلب</h3>
+          <div class="form-columns">
+            <div class="field">
+              <label for="request-type">نوع الطلب</label>
+              <select id="request-type">
+                <option>اقتراح فكرة</option>
+                <option>تقديم شكوى</option>
+                <option>إبلاغ عن معلومة خاطئة</option>
+                <option>إبلاغ عن مكان غير صحيح</option>
+                <option>طلب خدمة جديدة</option>
+                <option>مشكلة تقنية</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="name">الاسم</label>
+              <input id="name" type="text" placeholder="اكتب اسمك" />
+            </div>
+
+            <div class="field">
+              <label for="email">البريد الإلكتروني</label>
+              <input id="email" type="email" placeholder="name@example.com" />
+            </div>
+
+            <div class="field">
+              <label for="details">التفاصيل</label>
+              <textarea id="details" placeholder="اكتب تفاصيل اقتراحك أو شكواك"></textarea>
+            </div>
+
+            <div class="checkbox-row">
+              <input type="checkbox" id="consent" />
+              <label for="consent">أوافق على مراجعة الطلب لاحقًا</label>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="button button-primary">إرسال</button>
+              <button type="reset" class="button button-secondary">مسح</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="status-panel">
+          <h3>حالة الطلبات</h3>
+          <ul class="status-list">
+            <li><span>تم الاستلام</span><strong>0</strong></li>
+            <li><span>قيد المراجعة</span><strong>0</strong></li>
+            <li><span>تم الحل</span><strong>0</strong></li>
+          </ul>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-brand">برو BRO</div>
+      <p class="developer-credit">المطور: <span>DerRivo</span></p>
+      <p class="copyright">© <span id="year"></span> برو BRO</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
