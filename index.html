@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="برو BRO - منصة عربية تقدم الدردشة، التعليم، اكتشاف الأماكن، والمعلومات الدينية في تجربة حديثة ومريحة." />
-    <meta name="theme-color" content="#101826" />
-    <title>برو BRO | مساعدك الذكي</title>
+    <meta name="description" content="برو BRO منصة عربية تقدم الدردشة والتعليم والبحث عن الأماكن والمعلومات الدينية والخدمات المجتمعية في تجربة عربية متكاملة." />
+    <meta name="theme-color" content="#0f172a" />
+    <title>برو BRO | الصفحة الرئيسية</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,167 +14,216 @@
   </head>
   <body>
     <header class="topbar">
-      <a class="brand" href="index.html" aria-label="برو الرئيسية">
-        <span class="brand-mark">B</span>
+      <a class="brand" href="index.html" aria-label="العودة إلى الصفحة الرئيسية">
+        <span class="brand-mark" aria-hidden="true">B</span>
         <span class="brand-text">برو <small>BRO</small></span>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">
-        ☰
-      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
 
       <nav class="navigation" id="navigation" aria-label="القائمة الرئيسية">
-        <a class="active" href="index.html">الرئيسية</a>
-        <a href="chat.html">الدردشة</a>
+        <a href="index.html" class="active">الرئيسية</a>
         <a href="education.html">التعليم</a>
-        <a href="places.html">الأماكن</a>
+        <a href="places.html">الأماكن في مصر</a>
         <a href="religion.html">المعلومات الدينية</a>
+        <a href="suggestions.html">الاقتراحات والشكاوى</a>
+        <a href="chat.html">الدردشة مع بوبوت</a>
+        <a href="login.html" class="nav-account">الحساب</a>
       </nav>
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero section-shell">
         <div class="hero-copy">
-          <span class="eyebrow">✦ أهلًا بك في برو</span>
-          <h1>
-            مساحة عربية تجمع
-            <span>التعلّم، والمحادثة، والاكتشاف.</span>
-          </h1>
-          <p class="hero-description">
-            برو هو منصة عربية مصرية تساعدك في اكتشاف المعلومات بسرعة، فهم الدروس بسهولة، العثور على الأماكن، والاطلاع على المعلومات الدينية بشكل مرتب وسهل.
+          <span class="eyebrow">موقع عربي مصري يقدّم خدمات مفيدة</span>
+          <h1>برو BRO <span>منصة مصرية تجمع الفائدة والسهولة</span></h1>
+          <p class="lead">
+            برو منصة عربية موجهة للمجتمع المصري، تجمع بين المساعد الذكي، التعليم، البحث عن الأماكن في مصر، المعلومات الدينية، والخدمات المجتمعية في تجربة واحدة، واضحة، آمنة، وقابلة للتطوير.
           </p>
 
+          <form class="search-panel" aria-label="بحث عام">
+            <input type="search" placeholder="ابحث عن درس، مكان، معلومة، أو خدمة..." aria-label="بحث عام" />
+            <button type="submit">بحث</button>
+          </form>
+
           <div class="hero-actions">
-            <a class="button button-primary" href="chat.html">ابدأ الآن</a>
+            <a class="button button-primary" href="chat.html">ابدأ مع بوبوت</a>
             <a class="button button-secondary" href="#services">اكتشف الخدمات</a>
           </div>
 
-          <div class="trust-bar">
-            <span>محادثة</span>
+          <div class="quick-tags" aria-label="خدمات سريعة">
             <span>تعليم</span>
             <span>أماكن</span>
             <span>دينية</span>
+            <span>مقترحات</span>
           </div>
         </div>
 
-        <div class="robot-showcase" aria-label="تمتم الروبوت">
-          <div class="robot-glow"></div>
-          <div class="assistant-robot" id="robotAssistant" tabindex="0" role="button" aria-label="تفاعل مع تمتم">
-            <div class="robot-antenna"></div>
-            <div class="robot-head">
-              <div class="robot-eye left"></div>
-              <div class="robot-eye right"></div>
-              <div class="robot-mouth"></div>
+        <div class="hero-visual" aria-label="شخصية بوبوت ثلاثية الأبعاد">
+          <div class="bot-glow"></div>
+          <div class="bot-3d" id="botAssistant" tabindex="0" role="button" aria-label="تفاعل مع بوبوت">
+            <div class="bot-head">
+              <span class="bot-eye left"></span>
+              <span class="bot-eye right"></span>
+              <span class="bot-mouth"></span>
             </div>
-            <div class="robot-body">
-              <div class="robot-panel"></div>
+            <div class="bot-neck"></div>
+            <div class="bot-body">
+              <span class="bot-panel"></span>
             </div>
-            <div class="robot-arm left"></div>
-            <div class="robot-arm right"></div>
-            <div class="robot-leg left"></div>
-            <div class="robot-leg right"></div>
+            <div class="bot-arm left"></div>
+            <div class="bot-arm right"></div>
+            <div class="bot-leg left"></div>
+            <div class="bot-leg right"></div>
           </div>
-          <div class="robot-bubble" id="robotBubble">أهلًا! أنا تمتم، جاهز لأساعدك اليوم.</div>
+          <div class="bot-bubble" id="botBubble">أهلًا! أنا بوبوت، جاهز لأساعدك في رحلتك داخل برو.</div>
         </div>
       </section>
 
-      <section class="section" id="services">
+      <section class="section-shell" id="services">
         <div class="section-heading">
-          <span class="section-label">خدمات برو</span>
-          <h2>كل ما تحتاجه في <span>مكان واحد</span></h2>
+          <span class="section-label">الخدمات الأساسية</span>
+          <h2>كل ما تحتاجه في مكان واحد</h2>
         </div>
 
         <div class="service-grid">
-          <a class="service-card primary" href="chat.html">
+          <a class="service-card" href="chat.html">
             <span class="service-icon">💬</span>
-            <h3>الدردشة الذكية</h3>
-            <p>تفاعل مع مساعد عربي يساعدك في الإجابة، التوضيح، والتوجيه.</p>
+            <h3>الدردشة مع بوبوت</h3>
+            <p>تفاعل عربي مباشر مع مساعد ذكي يساعدك في الإجابة والتوجيه.</p>
             <span class="card-link">ابدأ المحادثة</span>
           </a>
 
-          <a class="service-card blue" href="education.html">
+          <a class="service-card" href="education.html">
             <span class="service-icon">📚</span>
             <h3>التعليم</h3>
-            <p>اكتشف شرحًا مبسطًا للمواد الدراسية ومساندة الطالب في الفهم.</p>
-            <span class="card-link">استكشف التعليم</span>
+            <p>شرح مبسط، تدريبات، اختبارات، ومراجعات مناسبة للطلاب.</p>
+            <span class="card-link">اكتشف التعليم</span>
           </a>
 
-          <a class="service-card green" href="places.html">
+          <a class="service-card" href="places.html">
             <span class="service-icon">📍</span>
-            <h3>البحث عن الأماكن</h3>
-            <p>تعرّف على أماكن مصر المهمة والمناطق الشائعة والأماكن القريبة.</p>
+            <h3>الأماكن في مصر</h3>
+            <p>بحث عن المستشفيات، المدارس، المطاعم، المناطق، والمحافظات.</p>
             <span class="card-link">اكتشف الأماكن</span>
           </a>
 
-          <a class="service-card rose" href="religion.html">
-            <span class="service-icon">🌙</span>
+          <a class="service-card" href="religion.html">
+            <span class="service-icon">🕌</span>
             <h3>المعلومات الدينية</h3>
-            <p>الوصول إلى معلومات دينية موثوقة وتوضيحات مبسطة ومناسبة للمتصفّح.</p>
-            <span class="card-link">تعرّف أكثر</span>
+            <p>معلومات دينية مبسطة، مع الاعتماد على مصادر موثوقة عند الحاجة.</p>
+            <span class="card-link">استكشف الدين</span>
           </a>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section-shell">
         <div class="section-heading">
-          <span class="section-label">لماذا برو؟</span>
-          <h2>تصميم عربي <span>يُناسب كل شخص</span></h2>
-        </div>
-
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span class="feature-icon">🇪🇬</span>
-            <h3>مصممة للعالم العربي</h3>
-            <p>واجهة عربية كاملة بتجربة مرنة ومريحة، تناسب مستخدمي مصر والعالم العربي.</p>
-          </article>
-
-          <article class="feature-card">
-            <span class="feature-icon">⚙️</span>
-            <h3>قابلة للتطوير</h3>
-            <p>هيكل المشروع واضح ويمكن توسيعه لاحقًا بإنشاء الحسابات، الحفظ، والتكامل مع خدمات حقيقية.</p>
-          </article>
-
-          <article class="feature-card">
-            <span class="feature-icon">🔒</span>
-            <h3>أمان البيانات</h3>
-            <p>لا يتم تخزين مفاتيح خاصة داخل الواجهة الأمامية، ويتم الاحتفاظ بثقافة تطوير آمنة.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section process">
-        <div class="section-heading">
-          <span class="section-label">طريقة العمل</span>
-          <h2>برو يبني تجربة <span>خطوة بخطوة</span></h2>
+          <span class="section-label">طريقة الاستخدام</span>
+          <h2>رحلة بسيطة من أول نقرة</h2>
         </div>
 
         <div class="steps-grid">
           <article class="step-card">
             <span>01</span>
-            <h3>اختيار الخدمة</h3>
-            <p>يختار المستخدم القسم المناسب له من الدردشة أو التعليم أو الأماكن أو الدين.</p>
+            <h3>اختر الخدمة</h3>
+            <p>اختَر القسم المناسب لك من التعليم، الدردشة، الأماكن أو الدين.</p>
           </article>
 
           <article class="step-card">
             <span>02</span>
-            <h3>استقبال الطلب</h3>
-            <p>يتم تجهيز الواجهة لتلقي الأسئلة والطلبات بطريقة واضحة وسريعة.</p>
+            <h3>اكتب طلبك</h3>
+            <p>اكتب سؤالك أو هدفك بوضوح، وسيساعدك بوبوت على التوجيه.</p>
           </article>
 
           <article class="step-card">
             <span>03</span>
-            <h3>التفاعل</h3>
-            <p>يستفيد المستخدم من التجربة الموجودة الآن، مع إمكانية التطوير لاحقًا إلى خدمات حقيقية.</p>
+            <h3>تابع التقدم</h3>
+            <p>تعرّف على النتيجة، ابقَ في المسار الصحيح، واستفد من الخدمات المتاحة.</p>
           </article>
+        </div>
+      </section>
+
+      <section class="section-shell">
+        <div class="section-heading">
+          <span class="section-label">مميزات برو</span>
+          <h2>تصميم عملي ومريح للمستخدم</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-icon">🌍</span>
+            <h3>موجه للمصريين</h3>
+            <p>واجهة عربية كاملة، مناسبة للمستخدم المصري داخل مصر، مع سهولة الوصول والمعلومة المحلية.</p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-icon">🧩</span>
+            <h3>قابل للتطوير</h3>
+            <p>الهيكل الحالي منظم ومناسب لإضافة الحسابات، المحادثات، الخرائط، والحفظ لاحقًا.</p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-icon">🔒</span>
+            <h3>أمان وخصوصية</h3>
+            <p>لا يتم تخزين المفاتيح أو الأسرار في الواجهة الأمامية، وتتبع المعايير الأساسية للحماية.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell muted-block">
+        <div class="mini-panel">
+          <div>
+            <span class="section-label">خدمات قيد التطوير</span>
+            <h2>بعض الخدمات لا تزال قيد التنفيذ</h2>
+          </div>
+          <p>
+            بعض المزايا مثل تسجيل الدخول والأمان الكامل، وربط خادم OpenAI، والبحث في الإنترنت، ستتم لاحقًا ضمن مراحل التطوير الرسمية بعد التأكد من المتطلبات والتكلفة اللازمة.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-shell faq-shell">
+        <div class="section-heading">
+          <span class="section-label">الأسئلة الشائعة</span>
+          <h2>معلومات مهمة قبل الاستخدام</h2>
+        </div>
+
+        <div class="faq-list">
+          <details open>
+            <summary>هل الموقع مجاني؟</summary>
+            <p>نعم، الخدمات الأساسية مجانية في البداية. أي توسع مستقبلي في الخدمات المدفوعة يحتاج إلى موافقة واضحة قبل التنفيذ.</p>
+          </details>
+
+          <details>
+            <summary>هل يتم استخدام الذكاء الاصطناعي فعليًا؟</summary>
+            <p>ليس حتى يتم ربط خادم آمن صحيح، واختباره فعليًا. هذا المشروع الحالي يركز على واجهة ومقاطع جاهزة للربط لاحقًا.</p>
+          </details>
+
+          <details>
+            <summary>هل يمكن إضافة الحسابات لاحقًا؟</summary>
+            <p>نعم، البنية الحالية قابلة للتوسع لتضمين الحسابات، المحادثات، التفضيلات، والمعايير الأمنية المناسبة.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section-shell cta-shell">
+        <div class="cta-box">
+          <div>
+            <span class="section-label">اقتراح أو شكوى</span>
+            <h2>لديك فكرة أو مشكلة؟</h2>
+            <p>أرسل اقتراحك أو شكواك، وسنعمل على مراجعتها بشكل منظم في مرحلة التطوير القادمة.</p>
+          </div>
+          <a class="button button-primary" href="suggestions.html">أرسل اقتراحك</a>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <div class="footer-brand">برو BRO</div>
-      <p>مشروع عربي مصري يجمع فائدة المستخدم، وضوح التصميم، وقابلية النمو.</p>
+      <p>منصة عربية مصرية تجمع الفائدة، التعليم، والخدمات المجتمعية.</p>
       <p class="developer-credit">المطور: <span>DerRivo</span></p>
-      <p class="copyright">© <span id="year"></span> برو BRO</p>
+      <p class="copyright">© <span id="year"></span> برو BRO — جميع الحقوق محفوظة</p>
     </footer>
 
     <script src="js/main.js"></script>
